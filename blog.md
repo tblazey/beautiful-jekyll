@@ -1,6 +1,5 @@
 ---
 title: Articles
-subtitle: Much Read! So Wow!
 ---
 
 {% if paginator.posts %}
