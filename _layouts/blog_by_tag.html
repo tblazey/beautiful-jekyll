@@ -5,7 +5,7 @@ subtitle: yeah
 ---
 
 {% capture page_subtitle %}Articles by tag{% endcapture %}
-
+<h3 class="m-t-3 m-b-1">{{ page.name }}</h3>
 <div class="text-justify">
   {% if site.tags[page.slug] %}
     {% for post in site.tags[page.slug] %}
