@@ -22,7 +22,7 @@ This commands converts the left hemisphere pial surface into ASCII. For this exa
 -16.554127  -69.255852  60.977936  0
 {% endhighlight %}
 
-The second line states the number of vertices and then the number of faces. Each vertex and each face gets is own line, with all the vertices coming before the first face. So for this example, the vertices are contained in lines 3 to 163,844, and the faces from lines 163,845 to 491,524. Each vertex row is simply a list of x,y,z coordinates whearas each face row contains the vertex indices that form that face (first index is zero). To load in the data into R, I wrote the following little function:
+The second line states the number of vertices and then the number of faces. Each vertex and each face gets is own line, with all the vertices coming before the first face. So for this example, the vertices are contained in lines 3 to 163,844, and the faces from lines 163,845 to 491,524. Each vertex row is simply a list of x,y,z coordinates whereas each face row contains the vertex indices that form that face (first index is zero). To load in the data into R, I wrote the following little function:
 
 {% highlight R %}
 loadSurf = function(surfPath){
@@ -71,7 +71,7 @@ We can, however, easily add overlays. Lets test this out with the average thickn
 mris_convert -c lh.thickness lh.pial lh.thickiness.asc
 {% endhighlight %}
 
-This creates a four-column file where the columsn are index, vertex x-coordinate, vertex y-coordinate, vertex z-coordinate, and thickness value. As the file contains the same number of vertices in the same order as lh.pial, we can just ignore everything but the fifth column:
+This creates a four-column file where the columns are index, vertex x-coordinate, vertex y-coordinate, vertex z-coordinate, and thickness value. As the file contains the same number of vertices in the same order as lh.pial, we can just ignore everything but the fifth column:
 
 {% highlight R %}
 #Load in thickness data
@@ -104,4 +104,4 @@ shade3d(surfaceMesh,col=thickColors)
 
 ![thickness]({{ site.baseurl }}/img/surfaceTwo_cropped.png "RGL Surface with Thickness Overlay")
 
-The same process can be used to load any standard surface overlay. While this might not be a fast as [other](https://surfer.nmr.mgh.harvard.edu/fswiki/TkSurfer) [options](https://surfer.nmr.mgh.harvard.edu/fswiki/FreeviewGuide/FreeviewIntroduction), it is pretty flexible and works right within R. Questions? Feel free to ask.
+The same process can be used to load any standard surface overlay. While this might not be a fast as [other](https://surfer.nmr.mgh.harvard.edu/fswiki/TkSurfer) [options](https://surfer.nmr.mgh.harvard.edu/fswiki/FreeviewGuide/FreeviewIntroduction), it is pretty flexible and works right within R. Questions? Feel free to [ask](mailto:tblaze11@gmail.com)
