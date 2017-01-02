@@ -128,7 +128,7 @@ defaults:
       show-avatar: true
 
 # Use tags pages (not recommended if you are deploying via GitHub pages, only set to true if deploying locally with ruby)
-link-tags: false
+link-tags: true
 
 # Exclude these files from production site
 exclude:
@@ -193,15 +193,6 @@ prose:
 
 gems:
   - jekyll-paginate
-  
-# Where things are
-collections:
-  my_categories:
-    output: true
-    permalink: /blog/category/:name/
-  my_tags:
-    output: true
-    permalink: /blog/tag/:name/
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
