@@ -1,4 +1,5 @@
 ---
+layout: page
 title: Articles
 ---
 
@@ -20,22 +21,6 @@ title: Articles
     </div>
   {% endfor %}
 {% else %}
-  {% for post in paginator.posts %}
-    {% assign category = site.categories | where: "slug", post.category %}
-    {% assign category = category[0] %}
-
-    <div class="card m-b-2">
-      <div class="card-block">
-        <h3 class="card-title">{{ post.title }}</h3>
-        <div class="card-text">{{ post.excerpt }}<p class="m-b-0">&#8230</p></div>
-      </div>
-      <div class="card-footer clearfix">
-        <small class="pull-xs-left text-muted">Posted <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b. %d, %Y' }}</time> in&nbsp;</small>
-        <a class="pull-xs-left label" href="{{ category.url }}" style="background-color:{{ category.color }}">{{ category.name }}</a>
-        <small><a class="pull-xs-right" href="{{ post.url }}">Read more</a></small>
-      </div>
-    </div>
-  {% endfor %}
   <p>No posts found.</p>
 {% endif %}
 
