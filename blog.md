@@ -2,7 +2,7 @@
 layout: page
 title: Articles
 ---
-paginator.posts
+<h2 class="post-title">{{ paginator.posts }}</h2>
 {% if paginator.posts %}
   {% for post in paginator.posts %}
     {% assign category = site.categories | where: "slug", post.category %}
