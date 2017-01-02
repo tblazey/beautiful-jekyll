@@ -16,9 +16,11 @@ layout: base
         <div class="blog-tags">
           Tags:
           {% if site.link-tags %}
-          {% for tag in page.tags %}
-          {% assign tagSite = site.my_tags | where: "slug", tag %}
-            <a href="/tags/{{ tagSite.url }}">{{ tagSite.name }}</a>
+          {% for page_tag in page.tags %}
+          {% assign tag = site.my_tags | where: "slug", page_tag %}
+            {% assign tag = tag[0] %}
+            {% capture tags_content_temp %}{{ tags_content }}<a href="{{ tag.url }}">{{ tag.name }}</a>{% if forloop.last == false %}, {% endif %}{% endcapture %}
+            {% assign tags_content = tags_content_temp %}
           {% endfor %}
           {% else %}
             {{ page.tags | join: ", " }}
