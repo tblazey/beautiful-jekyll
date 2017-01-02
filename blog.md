@@ -2,8 +2,6 @@
 layout: page
 title: Articles
 ---
-<h2 class="post-title">{{ paginator.posts }}</h2>
-{% if paginator.posts %}
   {% for post in paginator.posts %}
     {% assign category = site.categories | where: "slug", post.category %}
     {% assign category = category[0] %}
@@ -20,9 +18,6 @@ title: Articles
       </div>
     </div>
   {% endfor %}
-{% else %}
-  <p>No posts found.</p>
-{% endif %}
 
 {% if paginator.total_pages > 1 %}
   <div class="text-xs-center">
