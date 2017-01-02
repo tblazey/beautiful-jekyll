@@ -2,7 +2,7 @@
 layout: page
 title: Articles
 ---
-
+paginator.posts
 {% if paginator.posts %}
   {% for post in paginator.posts %}
     {% assign category = site.categories | where: "slug", post.category %}
