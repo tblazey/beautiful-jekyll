@@ -104,4 +104,4 @@ shade3d(surfaceMesh,col=thickColors)
 
 ![thickness]({{ site.baseurl }}/img/surfaceTwo_cropped.png "RGL Surface with Thickness Overlay")
 
-The same process can be used to load any standard surface overlay. While this might not be a fast as [other](https://surfer.nmr.mgh.harvard.edu/fswiki/TkSurfer) [options](https://surfer.nmr.mgh.harvard.edu/fswiki/FreeviewGuide/FreeviewIntroduction), it is pretty flexible and works right within R. Questions? Feel free to [ask](mailto:tblaze11@gmail.com)
+The same process can be used to load any standard surface overlay. While this might not be a fast as [other](https://surfer.nmr.mgh.harvard.edu/fswiki/TkSurfer) [options](https://surfer.nmr.mgh.harvard.edu/fswiki/FreeviewGuide/FreeviewIntroduction), it is pretty flexible and works right within R. Questions? Feel free to [ask](mailto:tblaze11@gmail.com).
