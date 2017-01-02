@@ -2,8 +2,9 @@
 layout: page
 title: Articles
 ---
+
   {% for post in paginator.posts %}
-    {% assign category = site.categories | where: "slug", post.category %}
+    {% assign category = site.my_categories | where: "slug", post.category %}
     {% assign category = category[0] %}
 
     <div class="card m-b-2">
