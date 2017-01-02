@@ -3,7 +3,6 @@ layout: page
 ---
 
 <h2 class="post-title">{{ page.name }}</h2>
-<h3 class="post-subtitle">Articles by tag</h3>
 <div class="text-justify">
   {% if site.tags[page.slug] %}
     {% for post in site.tags[page.slug] %}
