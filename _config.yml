@@ -47,7 +47,7 @@ avatar: "/img/header.png"
 # Change all these values or delete the ones you don't want.
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
-  name: "Someone"
+  name: "tblazey"
   email: "tblaze11@gmail.com"
   facebook: yourname  # eg. daattali
   github: tblazey    # eg. daattali
