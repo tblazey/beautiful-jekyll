@@ -6,7 +6,7 @@ title: Articles
   {% for post in paginator.posts %}
     {% assign category = site.my_categories | where: "slug", post.category %}
     {% assign category = category[0] %}
-
+    here
     <div class="card m-b-2">
       <div class="card-block">
         <h3 class="card-title">{{ post.title }}</h3>
