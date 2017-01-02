@@ -1,5 +1,14 @@
 # --- General options --- #
 
+# Where things are
+collections:
+  my_categories:
+    output: true
+    permalink: /blog/category/:name/
+  my_tags:
+    output: true
+    permalink: /blog/tag/:name/
+    
 # url is the full website URL
 # baseurl is the website's URL without the hostname
 
