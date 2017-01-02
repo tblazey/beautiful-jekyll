@@ -63,7 +63,7 @@ shade3d(surfaceMesh,col="#7E7E7E")
 
 The resulting surface image is pretty basic, and doesn't really display any information:
 
-![surface]({{ site.baseurl }}/images/surfaceOne_cropped.png "Basic RGL Surface")
+![surface]({{ site.baseurl }}/img/surfaceOne_cropped.png "Basic RGL Surface")
 
 We can, however, easily add overlays. Lets test this out with the average thickness map (lh.thickness). First, we need to convert the thickness file and load it into R. I chose to convert to ASCII, but you could use another format:
 
