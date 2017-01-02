@@ -3,47 +3,72 @@ layout: page
 title: Articles
 ---
 
+<div class="posts-list">
   {% for post in paginator.posts %}
-    {% assign category = site.my_categories | where: "slug", post.category %}
-    {% assign category = category[0] %}
-    here
-    <div class="card m-b-2">
-      <div class="card-block">
-        <h3 class="card-title">{{ post.title }}</h3>
-        <div class="card-text">{{ post.excerpt }}<p class="m-b-0">&#8230</p></div>
+  <article class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+	  <h2 class="post-title">{{ post.title }}</h2>
+
+	  {% if post.subtitle %}
+	  <h3 class="post-subtitle">
+	    {{ post.subtitle }}
+	  </h3>
+	  {% endif %}
+    </a>
+
+    <p class="post-meta">
+      Posted on {{ post.date | date: "%B %-d, %Y" }}
+    </p>
+
+    <div class="post-entry-container">
+      {% if post.image %}
+      <div class="post-image">
+        <a href="{{ post.url | prepend: site.baseurl }}">
+          <img src="{{ post.image }}">
+        </a>
       </div>
-      <div class="card-footer clearfix">
-        <small class="pull-xs-left text-muted">Posted <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b. %d, %Y' }}</time> in&nbsp;</small>
-        <a class="pull-xs-left label" href="{{ category.url }}" style="background-color:{{ category.color }}">{{ category.name }}</a>
-        <small><a class="pull-xs-right" href="{{ post.url }}">Read more</a></small>
+      {% endif %}
+      <div class="post-entry">
+        {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }}
+        {% assign excerpt_word_count = post.excerpt | number_of_words %}
+        {% if post.content != post.excerpt or excerpt_word_count > site.excerpt_length %}
+          <a href="{{ post.url | prepend: site.baseurl }}" class="post-read-more">[Read&nbsp;More]</a>
+        {% endif %}
       </div>
     </div>
+
+     {% if post.tags.size > 0 %}
+       <div class="blog-tags">
+        Tags:
+         {% if site.link-tags %}
+         {% for page_tag in post.tags %}
+         {% assign tag = site.my_tags | where: "slug", page_tag %}
+          {% assign tag = tag[0] %}
+          {% capture tags_content_temp %}{{ tags_content }}<a href="{{ tag.url }}">{{ tag.name }}</a>{% if forloop.last == false %}, {% endif %}{% endcapture %}
+          {% assign tags_content = tags_content_temp %}
+        {% endfor %}
+        {% else %}
+           {{ page.tags | join: ", " }}
+         {% endif %}
+         {{ tags_content }}
+       </div>
+     {% endif %}
+
+   </article>
   {% endfor %}
+</div>
 
 {% if paginator.total_pages > 1 %}
-  <div class="text-xs-center">
-    <ul class="pagination pagination-sm">
-      <li class="page-item{% unless paginator.previous_page %} disabled{% endunless %}">
-        <a class="page-link" href="{% if paginator.previous_page == 1 %}/blog/{% else %}{{ paginator.previous_page_path }}{% endif %}" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-          <span class="sr-only">Previous</span>
-        </a>
-      </li>
-      {% for page in (1..paginator.total_pages) %}
-        {% if page == paginator.page %}
-          <li class="page-item active"><a class="page-link" href="#">{{ page }} <span class="sr-only">(current)</span></a></li>
-        {% elsif page == 1 %}
-          <li class="page-item"><a class="page-link" href="/blog/">1</a></li>
-        {% else %}
-          <li class="page-item"><a class="page-link" href="{{ site.paginate_path | replace: ':num', page }}">{{ page }}</a></li>
-        {% endif %}
-      {% endfor %}
-      <li class="page-item{% unless paginator.next_page %} disabled{% endunless %}">
-        <a class="page-link" href="{% if paginator.next_page %}{{ paginator.next_page_path }}{% else %}#{% endif %}" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-          <span class="sr-only">Next</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+<ul class="pager main-pager">
+  {% if paginator.previous_page %}
+  <li class="previous">
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+  </li>
+  {% endif %}
+  {% if paginator.next_page %}
+  <li class="next">
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+  </li>
+  {% endif %}
+</ul>
 {% endif %}
