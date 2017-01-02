@@ -1,6 +1,5 @@
 ---
 layout: page
-title: Articles
 ---
 
 <div class="posts-list">
