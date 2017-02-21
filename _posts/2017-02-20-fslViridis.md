@@ -9,7 +9,7 @@ I think that anyone that uses the amazingly useful [FSL](https://fsl.fmrib.ox.ac
 
 There is an easy fix though. [Matplotlib](http://matplotlib.org/) has a number of great [colormaps](http://matplotlib.org/examples/color/colormaps_reference.html). In my opinion the best are their perceptually uniform colormaps viridis, plasma, magma, and inferno. It turns out that it is pretty easy to get these colormaps into a format that fslview can read. So easy, in fact, that I wrote a Python script to do it. You can find the script, as well as the four colormaps, [here](https://github.com/tblazey/fslViridis).
 
-To use these colormaps you have two main options. The fastest option is to load it directory from the command line using the -l option:
+To use these colormaps you have two main options. The fastest option is to load it directly from the command line using the -l option:
 
 {% highlight tcsh %}
 fslview /usr/local/fsl/data/standard/MNI152_T1_2mm_brain -l plasma.lut
