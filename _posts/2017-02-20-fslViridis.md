@@ -17,6 +17,6 @@ fslview /usr/local/fsl/data/standard/MNI152_T1_2mm_brain -l plasma.lut
 
 Alternatively, you can load the colormap inside FSLview by clicking on the little folder icon in the overlay information dialog. Either way, you get the following result:
 
-![fslPlasma]({{ site.baseurl }}/img/fslPlasma.png "Plasma Coloramp in FSL")
+![fslPlasma]({{ site.baseurl }}/img/fslPlasma.png "Plasma Colormap in FSL")
 
 Pretty right? And if for some reason you don't like any of the colormaps I made, you can use the provided script to make a FSL lut out of any of the colormaps included in Matplotlib.  
