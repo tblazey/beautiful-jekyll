@@ -15,7 +15,7 @@ To use these colormaps you have two main options. The fastest option is to load 
 fslview /usr/local/fsl/data/standard/MNI152_T1_2mm_brain -l plasma.lut
 {% endhighlight %}
 
-Alternativly, you can load the colormap inside FSLview by clicking on the little folder icon in the overlay information dialog. Either way, you get the following result:
+Alternatively, you can load the colormap inside FSLview by clicking on the little folder icon in the overlay information dialog. Either way, you get the following result:
 
 ![fslPlasma]({{ site.baseurl }}/img/fslPlasma.png "Plasma Coloramp in FSL")
 
